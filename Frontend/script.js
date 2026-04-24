@@ -12,16 +12,21 @@ async function generate() {
   formData.append("question", question);
 
   const output = document.getElementById("output");
-  output.innerText = "⏳ Generating...";
+  output.innerText = "⏳ Generating on GPU...";
 
   try {
-    const res = await fetch("https://your-backend.onrender.com/generate", {
+    // ⚠️ PASTE YOUR LOCALTUNNEL URL HERE BEFORE PUSHING TO GITHUB
+    const API_URL = "https://your-localtunnel-url.loca.lt/generate"; 
+
+    const res = await fetch(API_URL, {
       method: "POST",
+      headers: {
+        "Bypass-Tunnel-Reminder": "true" // CRITICAL for localtunnel
+      },
       body: formData
     });
 
     const data = await res.json();
-
     console.log("Response:", data);
 
     if (data.sql) {
@@ -36,6 +41,6 @@ async function generate() {
 
   } catch (err) {
     console.error(err);
-    output.innerText = "❌ Error connecting to backend";
+    output.innerText = "❌ Error connecting to backend. Is Colab running?";
   }
 }
