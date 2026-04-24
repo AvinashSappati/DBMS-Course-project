@@ -16,7 +16,7 @@ async function generate() {
 
   try {
     // ⚠️ PASTE YOUR LOCALTUNNEL URL HERE BEFORE PUSHING TO GITHUB
-    const API_URL = "https://your-localtunnel-url.loca.lt/generate"; 
+    const API_URL = " https://cold-women-flash.loca.lt"; 
 
     const res = await fetch(API_URL, {
       method: "POST",
