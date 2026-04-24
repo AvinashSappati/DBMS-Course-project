@@ -7,7 +7,6 @@ from parser import parse_schema_text_to_json
 
 app = FastAPI()
 
-# Crucial for allowing your Vercel frontend to talk to this Colab backend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Keep the heavy model in memory so it doesn't reload on every click
+# Keeping the heavy model in memory 
 engine = None
 
 @app.get("/")
@@ -25,10 +24,8 @@ def home():
 
 @app.post("/generate")
 async def generate(schema_text: str = Form(...), question: str = Form(...)):
+    
     global engine
-
-    # We don't need to read/decode a file anymore! 
-    # Just pass the raw text string directly to your parser.
     schema_json = parse_schema_text_to_json(schema_text)
 
     # Write straight to the root directory
@@ -38,15 +35,14 @@ async def generate(schema_text: str = Form(...), question: str = Form(...)):
 
     db_id = schema_json[0]["db_id"]
 
-    # Load model onto GPU ONLY if it's the first time
+    # Loading model into GPU 
     if engine is None:
         print("Booting up T5 and BGE models...")
         engine = Text2SQLEngine(schema_path)
     else:
         # Hot-swap the schema
         engine.schemas.update(load_schemas(schema_path))
-
-    # Generate the SQL
+        
     result = engine.generate(question, db_id)
 
     return result
