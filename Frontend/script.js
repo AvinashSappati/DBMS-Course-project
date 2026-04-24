@@ -18,7 +18,7 @@ async function generate() {
 
    try {
     // ⚠️ KEEP YOUR EXISTING LOCALTUNNEL URL HERE
-    const API_URL = "https://legal-mice-begin.loca.lt/generate"; 
+    const API_URL = "https://heavy-owls-count.loca.lt/generate"; 
 
     const res = await fetch(API_URL, {
       method: "POST",
