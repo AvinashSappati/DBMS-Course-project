@@ -1,5 +1,5 @@
 async function generate() {
-    // Grab the text from the new textarea instead of the file input
+
     const schemaText = document.getElementById("schemaText").value;
     const question = document.getElementById("question").value;
 
@@ -9,17 +9,17 @@ async function generate() {
     }
 
     let formData = new FormData();
+    
     // We send the string under the key "schema_text" to match FastAPI
     formData.append("schema_text", schemaText); 
     formData.append("question", question);
 
     const output = document.getElementById("output");
-    output.innerText = "⏳ Generating on GPU...";
+    output.innerText = "Generating the Query.... ";
 
    try {
-    // ⚠️ KEEP YOUR EXISTING LOCALTUNNEL URL HERE
+       
     const API_URL = " https://five-planes-bow.loca.lt/generate"; 
-
     const res = await fetch(API_URL, {
       method: "POST",
       headers: {
@@ -33,16 +33,16 @@ async function generate() {
 
     if (data.sql) {
       output.innerText =
-        "✅ SQL Query:\n\n" + data.sql +
+        "SQL Query:\n\n" + data.sql +
         "\n\nConfidence: " + (data.confidence || "N/A");
     } else {
       output.innerText =
-        "⚠️ " + (data.message || "Something went wrong") +
+        (data.message || "Something went wrong") +
         "\n\n" + JSON.stringify(data, null, 2);
     }
 
   } catch (err) {
     console.error(err);
-    output.innerText = "❌ Error connecting to backend. Is Colab running?";
+    output.innerText = "Error in connecting to the backend. Please Recheck the Colab ! ";
   }
 }
