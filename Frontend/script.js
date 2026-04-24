@@ -19,7 +19,7 @@ async function generate() {
 
    try {
        
-    const API_URL = "https://stale-pens-warn.loca.lt/generate"; 
+    const API_URL = "https://weak-donkeys-play.loca.lt/generate"; 
     const res = await fetch(API_URL, {
       method: "POST",
       headers: {
