@@ -43,6 +43,6 @@ async function generate() {
 
   } catch (err) {
     console.error(err);
-    output.innerText = "Error in connecting to the backend. Please Recheck the Colab ! ";
+    output.innerText = "Error in connecting to the backend. Please Recheck the Colab once  ";
   }
 }
