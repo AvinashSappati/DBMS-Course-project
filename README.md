@@ -29,11 +29,9 @@ The architecture is split to optimize for heavy ML processing while providing a 
 * **Backend (Google Colab GPU):** A robust FastAPI REST server running on a free Colab T4 GPU, tunneled to the public web via `localtunnel`.
 
 ### How to Test the Live Application
-
-**For the Evaluator/Professor:**
-1. Open the Colab Notebook linked here: `https://colab.research.google.com/drive/1SJP4zAQFyqjMG44tkCYgnp1FN9eIIlG0?usp=sharing`
-2. Run the three setup cells to launch the backend and generate the public URL and enter Localtunnel IP password.
-3. Make that generated API_URL into javascript file and commit into Github.
-4. Visit the live frontend here: `https://dbms-course-project-blue.vercel.app/`
+1. Open the Colab Notebook linked here: [Launch Backend](https://colab.research.google.com/drive/1SJP4zAQFyqjMG44tkCYgnp1FN9eIIlG0?usp=sharing)
+2. Run the three setup cells to launch the backend and generate the public URL and enter the Localtunnel IP password.
+3. Make that generated API_URL into script.js file and commit into Github.
+4. Visit the live frontend here: [Open Web App](https://dbms-course-project-blue.vercel.app/)
 5. Paste a database schema (e.g., `Students(id INT PK, name VARCHAR)`) into the text box.
 6. Enter a natural language question and click **Generate SQL**.
