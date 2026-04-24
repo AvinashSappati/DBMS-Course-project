@@ -14,8 +14,9 @@ def load_model():
 def generate(file, question):
     load_model()
 
-    # read uploaded file
-    raw_text = file.read().decode("utf-8")
+    # 'file' is actually a file path string now, so we open it
+    with open(file, "r", encoding="utf-8") as f:
+        raw_text = f.read()
 
     # convert schema → json
     schema_json = parse_schema_text_to_json(raw_text)
