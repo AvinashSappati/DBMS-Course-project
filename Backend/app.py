@@ -15,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Keeping the heavy model in memory 
+# Heavy model in memory 
 engine = None
 
 @app.get("/")
