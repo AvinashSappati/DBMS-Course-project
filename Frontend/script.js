@@ -1,27 +1,29 @@
 async function generate() {
-  const file = document.getElementById("file").files[0];
-  const question = document.getElementById("question").value;
+    // Grab the text from the new textarea instead of the file input
+    const schemaText = document.getElementById("schemaText").value;
+    const question = document.getElementById("question").value;
 
-  if (!file || !question) {
-    alert("Upload file + enter question");
-    return;
-  }
+    if (!schemaText || !question) {
+      alert("Paste your schema and enter a question");
+      return;
+    }
 
-  let formData = new FormData();
-  formData.append("file", file);
-  formData.append("question", question);
+    let formData = new FormData();
+    // We send the string under the key "schema_text" to match FastAPI
+    formData.append("schema_text", schemaText); 
+    formData.append("question", question);
 
-  const output = document.getElementById("output");
-  output.innerText = "⏳ Generating on GPU...";
+    const output = document.getElementById("output");
+    output.innerText = "⏳ Generating on GPU...";
 
-  try {
-    // ⚠️ PASTE YOUR LOCALTUNNEL URL HERE BEFORE PUSHING TO GITHUB
-    const API_URL = "https://legal-mice-begin.loca.lt/generate"; 
+   try {
+    // ⚠️ KEEP YOUR EXISTING LOCALTUNNEL URL HERE
+    const API_URL = "https://your-backend-url.loca.lt/generate"; 
 
     const res = await fetch(API_URL, {
       method: "POST",
       headers: {
-        "Bypass-Tunnel-Reminder": "true" // CRITICAL for localtunnel
+        "Bypass-Tunnel-Reminder": "true" 
       },
       body: formData
     });
