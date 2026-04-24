@@ -18,7 +18,7 @@ async function generate() {
 
    try {
     // ⚠️ KEEP YOUR EXISTING LOCALTUNNEL URL HERE
-    const API_URL = "https://eager-bees-flow.loca.lt/generate"; 
+    const API_URL = "https://slimy-parks-walk.loca.lt/generate"; 
 
     const res = await fetch(API_URL, {
       method: "POST",
