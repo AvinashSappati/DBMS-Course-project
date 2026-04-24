@@ -23,7 +23,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Added textarea and box-sizing to keep everything perfectly aligned */
 input, button, textarea {
   width: 100%;
   padding: 12px;
@@ -39,16 +38,14 @@ input[type="text"] {
   color: #333;
 }
 
-/* The new textarea styling */
 textarea {
   background: #fff;
   color: #333;
-  resize: vertical; /* Lets the user drag it taller if they have a huge schema */
-  font-family: monospace; /* Makes it look like actual code */
+  resize: vertical; 
+  font-family: monospace; 
   min-height: 120px;
 }
 
-/* Kept this just in case you ever want to switch back to file uploads */
 input[type="file"] {
   background: #222;
   color: white;
@@ -77,5 +74,5 @@ button:hover {
   color: #00ff9f;
   max-height: 250px;
   overflow-y: auto;
-  white-space: pre-wrap; /* CRITICAL: Keeps your SQL nicely formatted with indents! */
+  white-space: pre-wrap; 
 }
