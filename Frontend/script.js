@@ -19,7 +19,7 @@ async function generate() {
 
    try {
        
-    const API_URL = "https://loose-pants-greet.loca.lt/generate"; 
+    const API_URL = " https://tasty-clocks-kneel.loca.lt/generate"; 
     const res = await fetch(API_URL, {
       method: "POST",
       headers: {
