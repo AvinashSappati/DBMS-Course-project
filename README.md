@@ -9,7 +9,7 @@ The core intelligence is powered by a **T5-base** model, fully fine-tuned on the
 The model was rigorously tested against the **Spider Dataset**, a large-scale complex and cross-domain semantic parsing and text-to-SQL dataset.
 * **Fine-Tuning:** The `T5-base` model was fine-tuned to map natural language questions directly to SQL logical forms.
 * **Retrieval-Augmented Generation (RAG):** Utilizes `BAAI/bge-base-en-v1.5` sentence embeddings to filter and retrieve the most relevant tables and columns before generation, preventing context overflow.
-* **Testing Results:** *(Achieved an execution accuracy of 8.22% on the Spider validation split by matching 85 out of 1034 queries having exact match ).*
+* **Testing Results:** *(Achieved an exact match of 8.22% on the Spider validation split by matching 85 out of 1034 queries having exact match ).*
 
 ## 3. Input Parsing & Core Logic
 The system is designed to be highly modular and dynamic. It does not hardcode databases.
