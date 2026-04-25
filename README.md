@@ -16,7 +16,7 @@ The system is designed to be highly modular and dynamic. It does not hardcode da
 * **Schema Parsing (`parser.py`):** Automatically reads raw text schemas (DDL), extracts table structures, identifies Primary Keys (PKs), and detects Foreign Key (FK) relationships.
 * **Inference Engine (`test_model.py`):** The central hub that loads the schemas, runs the BGE semantic similarity checks, builds the prompt, and generates the SQL sequence using the T5 model on a GPU.
 
-## 4. Validation & Results
+## 4. Validation 
 To ensure robustness, the engine includes a multi-tiered validation system before returning results:
 1. **Syntax Validation:** Uses `sqlparse` to guarantee the generated query is syntactically valid SQL.
 2. **Semantic Validation:** Cross-references the generated SQL against the parsed schema to ensure hallucinated tables or columns are caught and flagged.
