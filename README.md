@@ -5,7 +5,7 @@
 This project bridges the gap between natural language and database execution. It is a full-stack AI application that translates plain English queries into valid SQL commands based on dynamic, user-provided database schemas. 
 The core intelligence is powered by a **T5-base** model, fully fine-tuned on the Spider dataset to understand complex table relationships, JOIN operations, and nested queries. 
 
-## 2. Spider Dataset & Model Testing
+## 2. [Spider Dataset](https://www.kaggle.com/datasets/aiunique/spider-dataset) & Model Testing
 The model was rigorously tested against the **Spider Dataset**, a large-scale complex and cross-domain semantic parsing and text-to-SQL dataset.
 * **Fine-Tuning:** The `T5-base` model was fine-tuned to map natural language questions directly to SQL logical forms.
 * **Retrieval-Augmented Generation (RAG):** Utilizes `BAAI/bge-base-en-v1.5` sentence embeddings to filter and retrieve the most relevant tables and columns before generation, preventing context overflow.
@@ -16,11 +16,10 @@ The system is designed to be highly modular and dynamic. It does not hardcode da
 * **Schema Parsing (`parser.py`):** Automatically reads raw text schemas (DDL), extracts table structures, identifies Primary Keys (PKs), and detects Foreign Key (FK) relationships.
 * **Inference Engine (`test_model.py`):** The central hub that loads the schemas, runs the BGE semantic similarity checks, builds the prompt, and generates the SQL sequence using the T5 model on a GPU.
 
-## 4. Multi-Database Validation & Results
+## 4. Validation & Results
 To ensure robustness, the engine includes a multi-tiered validation system before returning results:
 1. **Syntax Validation:** Uses `sqlparse` to guarantee the generated query is syntactically valid SQL.
 2. **Semantic Validation:** Cross-references the generated SQL against the parsed schema to ensure hallucinated tables or columns are caught and flagged.
-* **Results:** Successfully tested across multiple distinct database environments (e.g., University schemas, Employee databases) with dynamic hot-swapping, requiring zero model retraining between databases. 
 
 ## 5. Deployment & Live Testing
 The architecture is split to optimize for heavy ML processing while providing a seamless user experience.
