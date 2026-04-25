@@ -1,0 +1,10 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary JSON files created during runtime
+schema.json
+temp_schema.json
+dummy.json
+temp/
